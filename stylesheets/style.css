@@ -1,0 +1,1880 @@
+/* Start of Universal code */
+*{
+    box-sizing: border-box;
+}
+
+body{
+    margin:0px;
+    padding: 0px;
+    font-family: calibri;
+}
+/* End of Universal code */
+
+/* START OF NAVBAR STYLING */
+
+/* Navbar display in PC layout */
+
+.navHeading {
+    height: 20px;
+}
+nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 10px 30px;
+    background-color:mintcream;
+    box-shadow: 2px 2px 20px rgba(90,118,253,0.13);
+    z-index: 1;
+    width:100%;
+    position: fixed;
+    left: 0px;
+    top: 0px;
+}
+nav ul{
+    display: flex;
+    margin:0px;
+    padding: 0px;
+    list-style: none;
+}
+nav ul li a{
+    height:40px;
+    line-height: 43px;
+    margin: 8px;
+    padding: 0px 22px;
+    display: flex;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    font-weight: 400;
+    color:#111;
+    text-decoration: none;
+    letter-spacing: 1px;
+}
+nav ul li a:hover{
+    background-color: chocolate;
+    color:#fff;
+    box-shadow: 5px 10px 30px rgb(153, 65, 3);
+    transition: all ease 0.2s;
+}
+
+/* This is used to hide the checkbox which we created in the html page for the hamburger icon*/
+nav .navBar-menu-btn{
+    display: none;
+    }
+    
+    /* navBar media query (Navbar display in all the mobile layouts except the PC layout) */
+
+    @media(max-width:1150px){
+        /* This aligns the heading and the menu icon to the corners of the navbar */
+        nav{
+            justify-content: space-between;
+            height: 65px;
+        }
+        /* This hides the page links in the navbar which appears in the default view and allows the menu icon(hamburger icon to appear)  */
+        .menu{
+            display: none;
+            position: absolute;
+            top: 65px;
+            left: 0px;
+            background-color: #fff;
+            border-bottom: 4px solid chocolate;
+            width:100%;
+        }
+
+        .menu li{
+            width:100%;
+        }
+
+        /* Creation of the menu icon */
+        /*This is used create the menu icon by creating a box and reduce the size and make it the middle line of the navbar*/
+        nav .navBar-menu-icon .navBar-icon{
+            background-color: #333333;
+            display: block;
+            height: 2px;
+            position: relative;
+            transition: 0.2s;
+            width:18px;
+        }
+
+        /*This is used to create the 2 lines ontop of the line we created (line 85-92) in the css page (above code snippet) */
+        nav .navBar-menu-icon .navBar-icon:before,
+        nav .navBar-menu-icon .navBar-icon:after{
+            background: #333333;
+            content: '';
+            display: block;
+            height: 100%;
+            position: absolute;
+            transition: all ease-out 0.2s;
+            width:100%;
+        }
+
+        /*This is used to add padding to the 2 lines we created (line 95-104) in the css page (above code snippet) */
+        nav .navBar-menu-icon .navBar-icon:before{
+            top: 5px;
+        }
+        nav .navBar-menu-icon .navBar-icon:after{
+            top:-5px;
+        }
+        /* End of creation of menu icon */
+
+        /* This aligns the links in the navbar which is displayed after the menu icon is clicked */
+        nav .menu li a{
+            width:100%;
+            height: 40px;
+            justify-content: center;
+            align-items: center;
+            margin:0px;
+            padding: 25px;
+            border:1px solid rgba(38,38,38,0.03);
+        }
+
+        /* This is used to hide the middle line of the menu icon we created above (line 85-92 ) */
+        nav .navBar-menu-btn:checked ~ .navBar-menu-icon .navBar-icon{
+            background: transparent;
+        }
+
+        /* This is used to rotate the menu icon so that it forms a cross "X" symbol once created */
+        /* The " ~ "  symbol means to select all of " .navBar-menu-icon .navBar-icon:before " preceeded by .navBar-menu-btn:checked * */
+        nav .navBar-menu-btn:checked ~ .navBar-menu-icon .navBar-icon:before{
+            transform: rotate(-45deg); 
+            top: 0;
+        }
+        nav .navBar-menu-btn:checked ~ .navBar-menu-icon .navBar-icon:after{
+            transform: rotate(45deg);
+            top: 0;
+        }
+        nav .navBar-menu-btn:checked ~ .menu{
+            display: block;
+        }
+}
+/* END OF NAVBAR STYLING */
+
+/* Body start */
+
+
+/* START OF HOMEPAGE CSS STYLING*/
+
+/* Start of css styling for the main image in the homepage  */
+
+.coverLion{
+    position: relative;
+    height: 100%; 
+    width: auto;
+    background-image: url(../images/lion.jpg);
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    border-bottom: 5px solid #eb7620;
+    padding-top: 20vh;
+}
+
+.coverLion-content h1{
+    padding-top:25vh;
+    color: #fff;
+    letter-spacing: 2px;
+    font-size: 6vw;
+}
+
+.coverLion-content p{
+    margin: 0px 0px;
+    color:#fff;
+    text-shadow: chocolate;
+    font-size: 3vh;
+}
+    
+.coverLion-content{
+    width: 50%;
+    margin: auto;
+    text-align: center;
+    transform: translateY(-30vh);
+}
+
+/* Used to remove the default styling of the hyperlinks which is underlined */
+.coverLion-content  a{
+    text-decoration: none;
+}
+
+.coverLion-content .btnExplore{
+    color: white;
+    border: 3px solid white;
+    padding-left: 60px;
+    padding-right: 60px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: 0.5s all;
+}
+
+.coverLion-content .btnExplore:hover{
+    background-color: #eb7620;
+    border: 0;
+}
+
+/* Media query is written to change the font-size of the h1 tag created above (line 179-184) until the width of the screen is 200px  */
+
+@media(max-width:200px){
+    .coverLion-content h1{
+        font-size: 6vw;
+    }
+}
+
+/* End of css styling for the main image in the homepage */
+
+
+.notice marquee{
+    margin-top: 85px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: red;
+    background: rgba(194, 164, 164, 0.755);
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+}
+
+section.noticeCont{
+    margin-top: -90px;
+}
+.noticeCont marquee{
+    margin-top: 85px;
+    padding-top: 12px;
+    padding-bottom: 10px;
+    color: red;
+    background: rgba(194, 164, 164, 0.755);
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+}
+@media (max-width:800px){
+    .noticeCont marquee{
+        margin-top: 42px;
+    }
+}
+
+/*Styling for the about us section in the homepage */    
+/* horizontal line below the heading About Us */
+.about-line{
+    margin-left: .5%;
+    width: 150px;
+    height: 4px;
+    background-color: #333;
+    margin-top: 1%;
+} 
+
+/* box start */
+/* styling for the heading About us (line 99 index.html) */
+
+.main-responsive-Img{
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+}
+.main-responsive-Img img{
+    height: calc(125vh - 625%);
+    width: 100%;
+    background-size: contain;
+    background-position: center center;
+    background-repeat: no-repeat;
+    border-bottom: 5px solid #eb7620;
+    
+}
+
+
+.home-heading{
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+}
+
+.home-heading h1{
+    padding-top: 100px;
+    line-height: 55px;
+    font-size: 3rem;
+    color:#22252e;
+    letter-spacing: 1px;
+    font-weight: 700;
+    margin: 0px;
+}
+
+.home-heading ul{
+    font-size: 1rem;
+    color: #474545;
+    line-height: 40px;
+    align-content: center;
+    text-align: left;
+    letter-spacing: 1px;
+    padding-bottom: 40px;
+    padding-left: 10%;
+}
+
+.home-heading p{
+    font-size: 1rem;
+    color:#777474;
+    letter-spacing: 1px;
+    line-height: 40px;
+    width:50%;
+    padding-bottom: -20vh;
+}
+
+/* width has been set to 100% to occupy the fulw width of the screen */
+.home-heading img{
+    height: calc(125vh - 625%);
+    width: 100%;
+    background-size: contain;
+    background-position: center center;
+    background-repeat: no-repeat;
+    border-bottom: 5px solid #eb7620;
+    
+}
+
+/* displays the boxes about animals and plants as a flex box (line 119-176 in index.html)*/
+.boxHome-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 10px 10px;
+}
+
+.boxHome{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width:33%;
+    height: 725px;
+    text-align: center;
+    box-shadow: 3px 3px 30px greenyellow;
+    border-radius: 10px;
+    background-color: #fff;
+    margin: 20px;
+    flex-grow: 1;
+    padding-right: 20px;
+    padding-left: 20px;
+}
+@media (max-width:400px){
+    .boxHome{
+        width: 100%;
+    }
+}
+
+.boxHome img{
+    max-width: 113%;
+    height: 215px;
+    margin:10px;
+    transition: all .3s;
+}
+
+/* zooms the image on hover */
+.boxHome img:hover{
+    transform:scale(1.2) ;
+}
+
+.boxHome font{
+    padding-top: 15px;
+    padding-bottom: 15px;
+    font-size: 1.5rem;
+    color: #22252e;
+    letter-spacing: 1px;
+    font-weight: 800;
+}
+
+.boxHome p{
+    font-size: 1rem;
+    color: #777474;
+    display: block;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 24px;
+    max-height: 100%;
+    max-width: 100%;
+    margin: 0;
+    letter-spacing: 1px;
+    
+}
+/* Used to add styling for the list (line 136 in index.html)*/
+.boxHome .boxHomeList{
+    font-size: 1rem;
+    color: #474545;
+    line-height: 25px;
+    align-content: center;
+    text-align: left;
+    letter-spacing: 1px;
+    padding-left: 10%;
+}
+
+/* Used to remove the default styling of the hyperlinks which is underlined */
+.boxHome a{
+    width:150px;
+    height:40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid green;
+    text-transform: uppercase;
+    margin: auto;
+    border-radius: 5px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color:green;
+    margin:0px;
+    text-decoration: none;
+}
+
+/* Changes the color of the link and the font on hover (line 171 & line 147 in index.html) */
+.boxHome a:hover{
+    background-color: green;
+    color:#fff;
+    box-shadow: 5px 10px 30px green;
+    transition: all ease 0.3s;
+}
+.boxHome .read-btn1:hover{
+    background-color: green;
+    color:#fff;
+    box-shadow: 5px 10px 30px green;
+    transition: all ease 0.3s;
+}
+.boxHome .read-btn1{
+    margin-top: 1px;
+}
+/* box end */
+/* about us end */
+/* END OF HOMEPAGE CSS STYLING */
+
+
+/* START OF TYPES OF ANIMALS AND PLANTS CSS STYLING */
+
+  /* Adds the main image in the types of animals and plants page */
+.mainImg{
+    position: relative;
+    height: 100%; 
+    width: auto;
+    background-image: url(../images/animalsAndPlants.png);
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    border-bottom: 5px solid #eb7620;
+    padding-top: 20vh;
+}
+
+.mainImg-content h1{
+    padding-top:25vh;
+    color: #fff;
+    letter-spacing: 2px;
+    font-size: 8vw;
+}
+
+/* Changes the size of the font when the width of the screen is 200px or below */
+@media(max-width:200px){
+    .mainImg-content h1{
+        font-size: 10vw;
+    }
+}
+
+.mainImg-content p{
+    margin: 0px 0px;
+    color:#fff;
+    text-shadow: chocolate;
+    font-size: 3vh;
+}
+    
+.mainImg-content{
+    width: 50%;
+    margin: auto;
+    text-align: center;
+    transform: translateY(-30vh);
+}
+
+.mainImg-content  a{
+    text-decoration: none;
+}
+
+.mainImg-content .btnExplore{
+    color: white;
+    border: 3px solid white;
+    padding-left: 60px;
+    padding-right: 60px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: 0.5s all;
+}
+
+.mainImg-content .btnExplore:hover{
+    background-color: #eb7620;
+    border: 0;
+}
+section.TypesOfAP {
+    background: khaki;
+}
+
+.TypesOfAP h1{
+    text-align: center;
+    padding-top: 12vh;
+    line-height: 55px;
+    font-size: 3rem;
+    color:#22252e;
+    letter-spacing: 1px;
+    font-weight: 700;
+    margin: 0px;
+    font-family: cursive;
+}
+
+/* Used to add a horizontal line below the heading */
+.type-line{
+    margin-left: 45%;
+    width: 150px;
+    height: 4px;
+    background-color: #333;
+    margin-top: 1%;
+    margin-bottom: 5vh;
+} 
+
+.TypesOfAP2 h1{
+    text-align: center;
+    padding-top: 12vh;
+    line-height: 55px;
+    font-size: 3rem;
+    color:#22252e;
+    letter-spacing: 1px;
+    font-weight: 700;
+    margin: 0px;
+}
+
+.box-typeAP-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 10px 10px;
+   
+}
+
+.box-typeAP{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 500px;
+    height: 740px;
+    text-align: center;
+    box-shadow: 3px 3px 30px rgb(197, 202, 204);
+    border-radius: 10px;
+    background-color: #fff;
+    margin: 20px;
+    flex-grow: 1;
+    padding-right: 20px;
+    padding-left: 20px;
+}
+.box-typeAP img{
+    max-width: 113%;
+    height: 300px;
+    margin:10px;
+    transition: all .3s;
+}
+
+.box-typeAP img:hover{
+    transform:scale(1.2) ;
+}
+
+.box-typeAP font{
+    padding-top: 15px;
+    padding-bottom: 15px;
+    font-size: 1.9rem;
+    color: #22252e;
+    letter-spacing: 1px;
+    font-weight: 800;
+    font-family: papyrus;
+    text-decoration-line:underline;
+}
+.box-typeAP p{
+    font-family:sans-serif;
+    font-size: 1rem;
+    color: #777474;
+    display: block;
+    text-overflow: ellipsis;
+    line-height: 24px;
+    max-height: 100%;
+    max-width: 100%;
+    margin: 0;
+    letter-spacing: 1px;
+    padding-top: 4px;
+    
+}
+
+/* media query for the change the view and achieve responsiveness when below a width of 800px */
+@media (max-width:800px){
+    .box-typeAP{
+        height: 100%;
+    }
+    .box-typeAP p{
+        font-size: 26spx;
+    }
+}
+
+/* media query for the change the view and achieve responsiveness when below a width of 200px */
+@media (max-width:420px){
+    .box-typeAP{
+        height: 100%;
+    }
+    .box-typeAP img {
+        height: 170px;
+    }
+}
+
+/* Types of Plants Table */
+
+.table{
+	width: 100%;
+	border-collapse: collapse;
+}
+
+.table th{
+  padding:20px 45px;
+  border:1px solid greenyellow;
+  text-align: center;
+  font-size:20px;
+  font-family: papyrus;
+  background-color: rgb(13, 136, 19);
+  color:#ffffff;
+}
+
+.table td{
+  padding-top: 23px;
+  padding-bottom: 23px;
+  padding-left: 0px;
+  padding-right: 20px;
+  border:1px solid green;
+  text-align: left;
+  font-family: cursive;
+  
+}
+
+.table .image{
+  padding:75px 73px;
+  border:1px solid green;
+  width: 50%;
+}
+
+
+
+/* This is used to colour the rows of the table in even number order such as row 2, 4, 6 etc. */
+.table tbody tr:nth-child(even){
+	background-color: #f5f5f5;
+} 
+
+.table td .tree{
+	width: 100%;
+}
+/*responsive*/
+
+tfoot #footerLeft{
+    text-align: center;
+}
+
+@media(max-width:800px){
+	.table thead{
+		display: none;
+	}
+
+	.table, .table tbody, .table tr, .table td{
+		display: block;
+		width: 100%;
+	}
+	.table tr{
+		margin-bottom:15px;
+	}
+	.table td{
+		text-align: left;
+		padding-right: 20px;
+		position: relative;
+        font-size: 21px;
+	}
+	.table td ul li{
+        padding-top: 12px;
+		line-height: 23px;
+	}
+	.table .image{
+		padding-left: 136px;
+		padding-right: 20px;
+		position: relative;
+        width: 100%;
+	}
+	.table td::before{
+		content: attr(data-label);
+		position: absolute;
+		left:0;
+		width: 50%;
+		padding-left:15px;
+		font-size:23px;
+		font-weight: bold;
+		text-align: left;
+	}
+}
+
+@media (max-width:400px){
+    
+    .table td::before{
+        font-size: 19px;
+    }
+
+    .table td{
+        font-size: 16px;
+	}
+}
+
+/* Types of Plants Table */
+
+/* END OF TYPES OF ANIMALS AND PLANTS PAGE CSS STYLING */
+
+
+/* START OF ACTIVITIES PAGE CSS STYLING */
+
+/* Heading of the Activities page */
+
+/* this adds a pulsating background color to the background  of the activities page */
+.actBody {
+    background-color: #222;
+    animation-name: color;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+  }
+  /* this definces the colours that appear during the pulse */
+  @keyframes color {
+    0% {
+      background-color: antiquewhite;
+    }
+    25%{
+        background-color: lavenderblush;
+    }
+    50% {
+      background-color: rgba(255, 228, 196, 0.72);
+    }
+    75% {
+      background-color: cornsilk;
+    }
+    100% {
+      background-color: lemonchiffon;
+    }
+  }
+
+
+.activities-heading{
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+}
+.activities-heading h1{
+    line-height: 55px;
+    font-size: 3.5rem;
+    color:#22252e;
+    letter-spacing: 1px;
+    font-weight: 700;
+    margin: 0px;
+}
+@media (max-width:800px){
+    .activities-heading h1{
+        padding-top: 0;
+    }
+}
+
+/* Main image in the actvities page  */
+.actMainImage{
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+}
+
+.actMainImage p{
+    font-size: 1rem;
+    color:#777474;
+    letter-spacing: 1px;
+    line-height: 40px;
+    width:50%;
+    padding-bottom: -20vh;
+}
+
+.actMainImage img{
+    width: 100%;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    border-bottom: 5px solid #eb7620;
+    
+} 
+
+/* styling codes for  link in activities page which links to the map */
+.activitiesMap-btn p{
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font-size: 1rem;
+    text-align: center;
+    color:#777474;
+    letter-spacing: 1px;
+    line-height: 40px;
+    margin: 0 0;
+}
+.activitiesMap-btn a{
+    color: #22252e;
+    border: 3px solid chocolate;
+    padding-left: 60px;
+    padding-right: 60px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: 0.5s all;
+}
+
+.activitiesMap-btn a:hover{
+    background-color: #eb7620;
+    border: 0;
+    color: white;
+}
+
+.activitiesMap-btn .view-btn{
+    margin-top: 1px;
+}
+
+.animalEncounters-heading{
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+}
+.animalEncounters-heading h1{
+    padding-top: 5vh;
+    line-height: 55px;
+    font-size: 3.5rem;
+    color:#22252e;
+    letter-spacing: 1px;
+    font-weight: 700;
+    margin: 0px;
+}
+.animalEncounters-heading h2{
+    padding-top: 1vh;
+    line-height: 30px;
+    font-family: Lucida Console;
+    font-size: 2.7rem;
+    color:#22252e;
+    letter-spacing: 1px;
+    font-weight: 700;
+    margin: 0px;
+}
+
+/* code to insert a horizonal line below the heading  */
+.animalEncounters-line{
+    margin-left: .5%;
+    margin-bottom: 5vh;
+    width: 150px;
+    height: 4px;
+    background-color: #333;
+    margin-top: 1%;
+} 
+
+/* Displays the conatiner belowa as a flexbox */
+.timeAndPrice-container{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 10px 10px;
+   
+}
+.timeAndPrice{
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;    
+    height: 560px;
+    box-shadow: 3px 3px 30px rgb(128, 121, 121);
+    border-radius: 10px;
+    background-color: #d4cb9763;
+    margin: 20px;
+    flex-grow: 1;
+    padding-right: 20px;
+    padding-left: 20px;
+    padding-top: 40px;
+}
+
+
+.timeAndPrice img:hover{
+    transform:scale(1.1) ;
+}
+#tP{
+    height: 100px;
+}
+
+.timeAndPrice .tPList{
+    font-size: 1.2rem;
+    color: #474545;
+    line-height: 40px;
+    letter-spacing: 1px;
+    
+}
+
+
+.timeAndPrice font{
+    padding-top: 10px;
+    padding-bottom: 15px;
+    font-size: 2.5rem;
+    color: #22252e;
+    letter-spacing: 1px;
+    font-weight: 800;
+}
+.timeAndPrice p{
+    font-size: 1rem;
+    color: #777474;
+    display: block;
+    line-height: 24px;
+    max-height: 100%;
+    max-width: 100%;
+    margin: 0;
+    letter-spacing: 1px;
+    
+}
+
+@media screen and (max-width:800px){
+    .timeAndPrice{
+        height: 540px;
+    }
+}
+
+/* Meet the panda heading */
+.meetPanda{
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+}
+
+.meetPanda img{
+    width: 100%;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    border-bottom: 5px solid #eb7620;
+    
+}
+
+/* links for the 2 styling pages  */
+#panda12-btn p{
+    padding-top: 30px;
+    padding-bottom: 20px;
+    font-size: 1rem;
+    text-align: center;
+    color:#777474;
+    letter-spacing: 1px;
+    line-height: 40px;
+    margin: 0 0;
+}
+ #panda12-btn a{
+    color: #22252e;
+    border: 3px solid chocolate;
+    padding-left: 60px;
+    padding-right: 60px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: 0.5s all;
+    margin-right: 2px;
+    margin-left: 2px;
+}
+
+ #panda12-btn a:hover{
+    background-color: #eb7620;
+    border: 0;
+    color: white;
+}
+
+ #panda12-btn .view-btn{
+    margin-top: -20px;
+}
+
+
+/* tiger experience information and images styling */
+.tigerExp{
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+}
+
+.tigerExp img{
+    width: 100%;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    border-bottom: 5px solid #eb7620;
+    
+}
+
+
+.tigerExp-Dsc-Container{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 10px 10px;
+   
+}
+.tigerExp-Dsc{
+    display: flex;
+    font-family: cursive;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;    
+    height: 500px;
+    width: 45%;
+    box-shadow: 3px 3px 30px rgb(128, 121, 121);
+    border-radius: 10px;
+    background-color: #fff;
+    margin: 20px;
+    flex-grow: 1;
+    padding-right: 20px;
+    padding-left: 20px;
+}
+
+.tigerExp-Dsc font {
+    font-family: Lucida Handwriting;
+    font-size: 2rem;
+    display: block;
+    line-height: 30px;
+    max-height: 100%;
+    max-width: 100%;
+    text-align: center;
+    margin: 0;
+    letter-spacing: 1px;
+}
+.tigerExp-Dsc p {
+    padding-right: 30px;
+    padding-left: 30px;
+}
+
+/* Definition list style code */
+.tigerExp-Dsc p , dl{
+    font-size: 1rem;
+    color: #777474;
+    display: block;
+    line-height: 30px;
+    max-height: 100%;
+    max-width: 100%;
+    margin: 0;
+    letter-spacing: 1px;
+    
+}
+.tigerExp-Dsc dt{
+    font-size: 1.2rem;
+    font-weight: 300;
+}
+
+
+@media (max-width:800px) {
+    .tigerExp-Dsc{
+        height: 100%;
+    }
+
+    .tigerExp-Dsc p, dl {
+       font-size: 18px;
+    }
+    .tigerExp-Dsc dt {
+       font-size: 20px;
+    }
+}
+@media (max-width:400px) {
+    .tigerExp-Dsc{
+        height: 100%;
+    }
+}
+
+
+
+.transport-container{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 10px 10px;
+   
+}
+
+.transport
+{
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+    width:500px;
+    height: 940px;
+    text-align: center;
+    box-shadow: 3px 3px 30px rgb(197, 202, 204);
+    border-radius: 10px;
+    background-color: #fff;
+    margin: 20px;
+    flex-grow: 1;
+    padding-right: 20px;
+    padding-left: 20px;
+}
+
+.transport
+ img{
+    max-width: 113%;
+    height: 300px;
+    margin:10px;
+    transition: all .3s;
+}
+
+/* transforms the image on hover by zooming */
+.transport
+ img:hover{
+    transform:scale(1.2) ;
+}
+
+.transport
+ font{
+    padding-top: 15px;
+    padding-bottom: 15px;
+    font-size: 1.5rem;
+    color: #22252e;
+    letter-spacing: 1px;
+    font-weight: 800;
+    font-family: cursive;
+}
+.transport
+ p{
+    font-size: 1rem;
+    color: #777474;
+    display: block;
+    line-height: 24px;
+    max-height: 100%;
+    max-width: 100%;
+    margin: 0;
+    letter-spacing: 1px; 
+    font-family: cursive;
+}
+
+.transport p , dl{
+    font-family: cursive;
+    font-size: 1rem;
+    color: #777474;
+    display: block;
+    line-height: 30px;
+    max-height: 100%;
+    max-width: 100%;
+    margin: 0;
+    letter-spacing: 1px;
+    text-align: left;
+}
+
+
+@media (max-width:800px) {
+    .transport{
+        height: 100%;
+    }
+    .transport p, dl {
+    font-size: 18px;
+ }
+ .transport dt {
+    font-size: 20px;
+ }
+}
+@media (max-width:400px) {
+    .transport{
+        height: 100%;
+    }
+}
+
+
+/* Styling for the extrenal links for tours and childrens activities */
+#externalLink p{
+    padding-top: 30px;
+    padding-bottom: 20px;
+    font-size: 1rem;
+    text-align: center;
+    color:#777474;
+    letter-spacing: 1px;
+    line-height: 40px;
+    margin: 0 0;
+}
+ #externalLink a{
+    color: #22252e;
+    border: 3px solid chocolate;
+    padding-left: 60px;
+    padding-right: 60px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: 0.5s all;
+    margin-right: 2px;
+    margin-left: 2px;
+}
+
+ #externalLink a:hover{
+    background-color: #eb7620;
+    border: 0;
+    color: white;
+}
+
+ #externalLink .view-externalLink{
+    margin-top: -20px;
+}
+
+@media (max-width:400px){
+    #externalLink a{
+        font-size: 12px;
+        padding-left: 10px;
+        padding-right: 10px;
+    }    
+}
+
+
+
+
+/* Activities page end */
+
+/* Contact Us Page start */
+
+
+.contBody {
+	padding-top: 12vh;
+	align-items: center;
+	font-family: 'Poppins', sans-serif;
+}
+
+.contContent {
+	width: 100%;
+	height: auto;
+	margin: auto;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.contInfo {
+	padding: 40px 30px;
+}
+
+/* the nth child is a css selector that allows us to select (one or more ) elements based ont eh order of their source  */
+.contInfo:nth-child(1) {
+	flex: 100%;
+	background: url(../images/tortoise2.jpg); 
+	color: black;
+	max-width: 100%;
+	background-size: cover;
+}
+
+.contInfo:nth-child(2) {
+	flex: 50%;
+	background: rgb(107, 177, 3);
+}
+
+.contInfo:nth-child(3) {
+	flex: 50%;
+	padding: 0;
+}
+
+.contInfo #conth1 {
+    text-align: center;
+	font-size: 40px;
+	color: rgb(4, 40, 65);
+	text-transform: uppercase;
+	margin-bottom: 20px;
+}
+
+.contInfo #formh1 {
+	text-decoration: underline;
+	font-size: 30px;
+	color: white;
+	text-transform: uppercase;
+	margin-bottom: 20px;
+}
+
+.contInfo h2 {
+	font-size: 25px;
+	margin-bottom: 15px;
+}
+
+.contInfo p {
+	font-size: 18px;
+	margin-bottom: 20px;
+	line-height: 25px;
+}
+
+.contInfo .icon{
+	width: 2.5%;
+	height: 2.5%;
+}
+
+/* styling for the form the form in the conatct us page {contact.html} */
+.contInfo form {
+	width: 100%;
+	height: auto;
+}
+
+.contInfo-input {
+	width: 100%;
+	height: 40px;
+	margin-bottom: 20px;
+	border: 1px solid #fff;
+	outline: none;
+	padding-left: 5px;
+	background: transparent;
+	color: #fff;
+	font-size: 12px;
+	font-family: 'Poppins', sans-serif;
+}
+
+/* placeholder styling in the form */
+.contInfo-input::placeholder {
+	color: #fff;
+}
+
+.contInfo-msg {
+	width: 100%;
+	height: 140px;
+	margin-bottom: 20px;
+	border: 1px solid #fff;
+	outline: none;
+	padding-top: 5px;
+	padding-left: 5px;
+	background: transparent;
+	color: #fff;
+	font-size: 12px;
+	font-family: 'Poppins', sans-serif;
+}
+
+
+.contInfo-msg::placeholder {
+	color: #fff;
+}
+
+.contInfo-btn {
+	width: 100%;
+	height: 40px;
+	border: 1px solid #fff;
+	outline: none;
+	background: transparent;
+	color: white;
+	font-size: 12px;
+	font-family: 'Poppins', sans-serif;
+	cursor: pointer;
+}
+.contInfo-btn:hover{
+	background: white;
+	color: chocolate;
+}
+
+/* used to alter the iframe  */
+/* the "!important is used to add priority to the code of the iframe so that it overrides any other codes given" */
+.contInfo iframe {
+	width: 100% !important;
+	height: 100% !important;
+}
+
+
+/* Media query tags to adjust the conatct page to achieve responsiveness */
+
+@media only screen and (max-width:480px) {
+	
+	.contInfo .icon{
+		width: 10%;
+		height: 10%;
+	}
+
+    .contBody{
+        padding-top: 0px;
+    }
+}
+
+@media only screen and (max-width:600px) {
+     /* n-th child accesses the elements by the order of their source */
+	.contInfo:nth-child(1) {
+		flex: 100%;
+		max-width: 100%;
+		height: auto;
+	}
+
+	.contInfo:nth-child(2) {
+		flex: 100%;
+	}
+
+	.contInfo:nth-child(3) {
+		flex: 100%;
+	}
+
+    .contBody{
+        padding-top: 0px;
+    }
+
+}
+
+@media only screen and (max-width:360px) {
+    /* n-th child accesses the elements by the order of their source */
+	.contInfo:nth-child(1) {
+		flex: 100%;
+	}
+
+	.contInfo:nth-child(2) {
+		flex: 100%;
+	}
+
+    /* the "!important is used to add priority to the code of the iframe so that it overrides any other codes given" */
+	.contInfo:nth-child(3) {
+		flex: 100%;
+		width: 100% !important;
+	    height: 100% !important;
+	}
+	
+    .contBody{
+        padding-top: 0px;
+    }
+}
+
+/* END OF CSS STYLING FOR THE CONTACT US PAGE */
+
+/* START OF CSS STYLING FOR THE MAP PAGE */
+
+/* aligns the image in the map.html page */
+.map img{
+    position: relative;
+    /* height: calc(125vh - 625%); */
+    height: 100%; 
+    width: 100%;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    border-bottom: 5px solid #eb7620;
+}
+@media(max-width:800px){
+    .map img{padding-top: 0;}
+}
+
+/*  END OF CSS STYLING FOR THE MAP PAGE*/
+
+
+/* START OF CSS STYLING FOR THE FOOTER */
+footer{
+    width: 100%;
+    position:relative;
+    bottom: 0;
+    left: 0;
+    background: #111;
+  }
+
+/* aligns the content of the footer   */
+  footer .content{
+    margin: auto;
+    padding-top: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding-bottom: 20px;
+    padding-right: 30px;
+    padding-left: 20px;  
+   }    
+
+  footer .content p, a{
+    color: #fff;
+  }
+
+  footer .content .left-box{
+    width: 33%;
+  }
+
+  footer .content .topic{
+    font-size: 34px;
+    font-weight: 600;
+    color: #fff;
+    text-align: center;
+    margin-bottom: 16px;
+  }
+
+  footer .content p{
+    width: 90%;
+    margin-top: 0;
+    font-size: 20px;
+    padding-left: 70px;
+  }
+
+  footer .content .upper .topic{
+    margin: 0 0 8px 0;
+  }
+
+  footer .content .upper img{
+    padding-right: 16px;
+    width: 15%;
+  }
+/* hovering effect to to the images next to the contact information in the footer to zoom on hover*/
+  .upper img:hover{
+    transform:scale(1.2) ;
+    border: 0;
+    color: white;
+  }
+
+  footer .content .middle-box{
+    padding-right: 70px;
+  }
+
+  
+  .middle-box .btnMiddle1 a{
+    color: white;
+    border: 3px solid chocolate;
+    padding-left: 60px;
+    padding-right: 60px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: 0.5s all;
+    margin-right: 2px;
+    margin-left: 2px;
+    line-height: 56px;
+  }
+
+  .middle-box .btnMiddle1 a:hover{
+    background-color: #eb7620;
+    border: 0;
+    color: white;
+  }
+
+  .middle-box .btnMiddle2 a{
+    color: white;
+    border: 3px solid chocolate;
+    padding-left: 60px;
+    padding-right: 60px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: 0.5s all;
+    margin-right: 2px;
+    margin-left: 2px;
+    line-height: 56px;
+  }
+
+  .btnMiddle2 a:hover{
+    background-color: #eb7620;
+    border: 0;
+    color: white;
+  }
+  
+   .middle-box .btnMiddle3 a{
+    color: white;
+    border: 3px solid chocolate;
+    padding-left: 95px;
+    padding-right: 94px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: 0.5s all;
+    margin-right: 2px;
+    margin-left: 2px;
+    line-height: 56px;
+  }
+
+  .btnMiddle3 a:hover{
+    background-color: #eb7620;
+    border: 0;
+    color: white;
+  }
+   .middle-box .btnMiddle4 a{
+    color: white;
+    border: 3px solid chocolate;
+    padding-left: 121px;
+    padding-right: 120px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: 0.5s all;
+    margin-right: 2px;
+    margin-left: 2px;
+    line-height: 56px;
+  }
+
+  .btnMiddle4 a:hover{
+    background-color: #eb7620;
+    border: 0;
+    color: white;
+  }
+  
+   .middle-box .cont-btnMiddle3 a{
+    color: white;
+    border: 3px solid chocolate;
+    padding-left: 104px;
+    padding-right: 94px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: 0.5s all;
+    margin-right: 2px;
+    margin-left: 2px;
+    line-height: 56px;
+  }
+
+  .cont-btnMiddle3 a:hover{
+    background-color: #eb7620;
+    border: 0;
+    color: white;
+  }
+   .middle-box .cont-btnMiddle4 a{
+    color: white;
+    border: 3px solid chocolate;
+    padding-left: 132px;
+    padding-right: 131px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: 0.5s all;
+    margin-right: 2px;
+    margin-left: 2px;
+    line-height: 56px;
+  }
+
+  .cont-btnMiddle4 a:hover{
+    background-color: #eb7620;
+    border: 0;
+    color: white;
+  }
+
+  footer .content .right-box .textboxR{ 
+    height:  45px;
+    width: 100%;
+    outline: none;
+    color: #d9d9d9;
+    background: #000;
+    border-radius: 5px;
+    padding-left: 10px;
+    font-size: 17px;
+    border: 2px solid #222222;
+  }
+
+  /* styling for the subscribe button */
+  footer .content .right-box .subscribe-btn{
+    margin-top: 10px;
+    padding: 12px 35px;
+    font-size: 16px;
+    color: #293843;
+    background: white;
+    border: none;
+    font-weight: 700;
+    outline:none;
+    border-radius: 15px;
+    width: 100%;
+  }
+
+  /* changes the opacity of the subscribe button on hover */
+  .subscribe-btn:hover{
+     opacity: .7;
+  }
+
+  footer .content .media-icons a{
+    font-size: 16px;
+    height: 45px;
+    width: 45px;
+    display: inline-block;
+    text-align: center;
+    line-height: 45px;
+    margin: 30px 5px 0 0; 
+  }
+
+  /* hovering effect to to the social media images to zoom on hover*/
+  .media-icons a:hover{
+    transform:scale(1.2) ;
+    border: 0;
+    color: white;
+  }
+  
+  footer .bottom{
+    width: 100%;
+    text-align: center;
+    color: #d9d9d9;
+    padding: 0 40px 5px 0 ;
+    margin-top: -20px;
+  }
+
+  footer .cont-bottom{
+    width: 100%;
+    text-align: center;
+    color: #d9d9d9;
+    padding: 0 40px 5px 0 ;
+    font-size: 14px;
+  }
+
+/* transition for links with the cubic bezier */
+ footer a{
+   transition: all 0.3s ease;
+ }
+  
+/* MEDIA TAGS FOR THE FOOTER IN ALL THE PAGES EXCEPT THE 2 DIFFERENTE CSS STYLING PAGES */
+/* media query to achieve reponsiveness uintil the with of the screen is 1110px */
+
+@media (max-width:1110px) {
+    footer .content {
+        padding: 20px;
+    }
+    footer .content .middle-box{
+    padding-top: 38px;
+    margin-left: -5px;
+    padding-right: inherit;
+    }
+}
+
+/* media query to achieve reponsiveness uintil the with of the screen is 940px */
+
+@media  (max-width:940px) { 
+    footer .content{
+        padding: 20px;
+    } 
+    
+    footer .content p {
+        width: 100%;
+        margin-top: 0;
+        font-size: 20px;
+        padding-left: 70px;
+    }  
+
+    footer .content .left-box{
+        margin-top: 40px;
+      }
+     
+      footer .content .upper img {
+        padding-right: 16px;
+        width: 26%;
+    }
+
+    .content .right-box{
+        margin-top: 50px;
+        padding-left: 150px;
+    }
+
+    .content .right-box .media-icons{
+        padding-left: 110px;
+    }
+}
+
+/* media query to achieve reponsiveness uintil the with of the screen is 570px */
+@media  (max-width:570px) {
+ footer{
+   position: relative;
+ }
+
+ footer .content{
+    padding: 20px;
+}
+
+ footer  .content .left-box{
+   width: 100%;
+   margin-top: 30px;
+ }
+ footer  .content .middle-box{
+  padding-left: 13px;
+ }
+
+ .content .right-box{
+    margin-top: 50px;
+    padding-left: 0px;
+  }
+ 
+  .content .right-box .media-icons{
+      padding-left: 75px;
+  }
+
+  footer .bottom{
+      padding-left: 40px;
+  }
+  footer .cont-bottom{
+      padding-left: 40px;
+  }
+}  
+
+@media (max-width:500px){
+    .middle-box .btnMiddle1 a {
+        padding-left: 22px;
+        padding-right: 22px;
+        margin-left: 20px;
+    }
+    .middle-box .btnMiddle2 a {
+        padding-left: 22px;
+        padding-right: 22px;
+        margin-left: 20px;
+    }
+    .middle-box .btnMiddle3 a {
+        padding-left: 59px;
+        padding-right: 59px;
+        margin-left: 20px;
+    }
+    .middle-box .btnMiddle4 a {
+        padding-left: 85px;
+        padding-right: 85px;
+        margin-left: 20px;
+    }
+
+}
+
+@media (max-width:300px) {
+    .middle-box .btnMiddle1  a{
+        padding-left: 20px;
+        padding-right: 20px;
+        margin-left: 7px;
+    }
+    .middle-box .btnMiddle2  a{
+        padding-left: 20px;
+        padding-right: 20px;
+        margin-left: 7px;
+    }
+    .middle-box .btnMiddle3  a{
+        padding-left: 60px;
+        padding-right: 50px;
+        margin-left: 7px;
+    }
+    .middle-box .btnMiddle4  a{
+        padding-left: 82px;
+        padding-right: 80px;
+        margin-left: 7px;
+    }
+}
+/* END OF CSS STYLING FOR THE FOOTER */
