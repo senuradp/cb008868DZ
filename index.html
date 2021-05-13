@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="stylesheets/style.css">
+    <link rel="stylesheet" href="stylesheets/normalize.css">
+
+    <!-- favicon  -->
+    <link rel="apple-touch-icon" sizes="180x180" href="images/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon/favicon-16x16.png">
+    <link rel="manifest" href="images/favicon/site.webmanifest">
+    <link rel="mask-icon" href="images/favicon/safari-pinned-tab.svg" color="#11b34c">
+    <link rel="shortcut icon" href="images/favicon/favicon.ico">
+    <meta name="msapplication-TileColor" content="#11b34c">
+    <meta name="msapplication-config" content="images/favicon/browserconfig.xml">
+    <meta name="theme-color" content="#11b34c">
+    <link rel="manifest" href="manifest.json">
+
+</head>
+
+<body>
+    <header>
+        <section class="navBar">
+            <nav>
+                <!--logo-->
+                <!-- this is the heading of the nav bar -->
+                <h2 class="navHeading">Dehiwala Zoo</h2>
+                <!--navBar-menu-btn-->
+                <!-- this is to get the hamburger icon and the cross when the webpage comes to responsive mode -->
+                <!-- A check box has been included in the below code, and is hedden behind the hamburger ion in the webpage so that once the checkbox is clicked, the hamburger icon transforms into a cross opening the navbar links -->
+                <input class="navBar-menu-btn" type="checkbox" id="navBar-menu-btn" />
+                <label class="navBar-menu-icon" for="navBar-menu-btn">
+                    <span class="navBar-icon"></span>
+                </label>
+                <!--menu-->
+                <!-- nav bar links -->
+                <ul class="menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="typesOfA&P.html">Types of Animals & Plants</a></li>
+                    <li><a href="activities.html">Activites</a></li>
+                    <li><a href="purchase&donate.html">Purchase & Donate</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="map.html">Map</a></li>
+                </ul>
+            </nav>
+        </section>
+    </header>
+
+    <section class="notice">
+        <!-- this code was written with the help of w3schools https://www.w3schools.in/html-tutorial/marquee-tag/  -->
+        <!-- cited in the word document -->
+        <marquee width="100%" direction="left">
+            We will be reopening the zoo on the 14th of MAY and because of current Coronavirus wellbeing and security
+            Direction,
+            please make sure to wear a face mask at all times within and out of the premises and we kindly request you
+            to have a bottle of
+            sanitizer in your hand at all times.
+            <br> Incase you havent brought your sanitizer and your face mask , you will be able to purchase them at the
+            entrance
+        </marquee>
+    </section>
+
+    <section class="coverLion">
+        <!-- main image which contains a lion at the home page the image has 
+        been added from the css file which is at line 144 in style.css -->
+        <!-- The image taken is a free image -->
+        <div class="coverLion-content">
+            <!-- css codes used to style can be found from line 144 to 244 in style.css -->
+            <br><br>
+            <h1>Welcome to the National Zoo Dehiwala! </h1>
+            <br><br>
+            <p>Come, Visit The Zoo and Learn More About Them!</p>
+            <br><br>
+            <a href="#ab" class="btnExplore">Explore</a>
+
+        </div>
+    </section>
+    <br>
+
+    <section class="main-Image">
+    <div class="main-responsive-Img">
+        <!-- loads the bear200x image in default view and in 200x zoom -->
+        <!-- loads the bear300x image in default view and in 300x zoom -->
+        <!-- loads the bear400x image in default view and in 400x zoom -->
+        <img src="images/bear.jpg" alt="bear image" srcset="images/bear200x.jpg 2x, images/bear300x.jpg 3x, images/bear400x.jpg 4x">
+    </div>
+</section>
+
+    <section class="home" id="ab">
+        <!-- the codes below are for the fleboxes which has details about animals and plants and trees -->
+
+        <div class="home-heading">
+            <!-- css codes used to style the below can be found from line 218 to 268 in style.css -->
+            <h1>About Us</h1>
+            <div class="about-line"></div>
+            <!-- above div is the horizontal line below the heading and the css code can be found from line 209
+                to 215 line  -->
+            <p>The National Zoo in Dehiwala Sri Lanka holds the title as of one of Asia's oldest Zoo's.
+                This zoo currently accomodates a spectacular array of native and non-native animal
+                species.
+
+                Presently the zoo is home to a wide variety of :
+
+            <ul>
+                <li> Mammals of 80 species </li>
+                <li> Fish of 90 species</li>
+                <li> Birds of 70 species</li>
+                <li> Butterflies of 25 species</li>
+                <li> Reptiles of 25 species</li>
+                <li> 04 different types of Amphibian families</li>
+            </ul>
+            </p>
+
+        </div>
+
+
+        <div class="home-heading">
+            <!-- The image taken is a free image -->
+            <img src="images/ele.jpg " alt="elephant">
+            <!-- css codes used to style the below can be found from line 218 to 268 in style.css -->
+            <h1>About Sri Lanka</h1>
+            <div class="about-line"></div>
+            <!-- above div is the horizontal line below the heading and the css code can be found from line 209
+                to 215 line  -->
+            <p>Sri lanka is an island in the Indian ocean positioned within the West of the
+                Laccadive Sea and the East of the Bay of Bengal. Sri Lanka is a beautiful island below the
+                Southeast Coast of India and has acquired many
+                monikers such as "THE PEARL OF THE INDIAN OCEAN", "THE TEAR DROP OF THE INDIAN OCEAN" due to
+                its shape of the island, mesmering landscapes, its cultural richness and its wealthy
+                civilization.</p>
+            <p>The island covers a total area of 65,610 km², Sri lanka is a also multi-cultural country and
+                the languages spoken are Sinhala(the native language or the mother-tongue), Tamil, Malay and
+                English.</p>
+            <img src="images/slaerial.jpg" alt="aerial picture">
+            <!-- https://www.lonelyplanet.com/articles/best-train-rides-sri-lanka -->
+
+        </div>
+    </section>
+
+
+    <section class="AnimalsandPlants">
+        <div class="boxHome-container">
+
+            <!-- the codes below are for the fleboxes which has details about animals and plants and trees and 
+            the css codes can be found from line 269 to line 381 in style.css  -->
+
+            <div class="boxHome">
+                <!-- The image taken is a free image -->
+                <img src="images/deer.jpg">
+                <font>About Animals</font>
+                <p>Based on the fact that islands do not have plenty of animals, Sri Lanka is quite the
+                    opposite when it comes to wildlife since even though its a small island, it packs great
+                    number of animals in the island within its vast
+                    national parks and zoos.</p>
+                <p>We currently nurture some rare animal
+                    species such as the :
+                    <br>
+                <ul class="boxHomeList">
+                    <li>Giant Panda</li>
+                    <li>Leopard</li>
+                    <li>Gorilla</li>
+                    <li>Macaw</li>
+                    <li>Giraffe</li>
+                    <li>Sri Lankan Black Panther</li>
+                </ul>
+                </p>
+                <!-- button which links to the animals section of the types of animals and plants page (typesOfA&P.html) -->
+                <p class="read-btn1">
+                    <a href="typesOfA&P.html">Read More</a>
+                </p>
+            </div>
+
+
+            <div class="boxHome">
+                <!-- The image taken is a free image -->
+                <img id="aP" src="images/trees.jpg">
+                <font>About Plants and Trees</font>
+                <p> Sri Lanka is a country that packs a wide variety of trees and plants. The national Tree of
+                    Sri Lanka is the Mesua Ferrea <i>(Scientific name)</i> most commonly known
+                    as the <strong>" Na tree"</strong> amongst the locals and is also called "Ceylon Ironwood".</p>
+                <p>We currently nurture some endemic and endangered trees such as the :
+                    <br>
+                <ol class="boxHomeList">
+                    <li>Hora Tree</li>
+                    <li>Na Tree</li>
+                    <li>Baobab Tree</li>
+                    <li>Walla-Patta Tree</li>
+                </ol>
+                </p>
+                <!-- button which links to the plants table section of the types of animals and plants page -->
+                <p class="read-btn1">
+                    <!-- button which links to the plants table of the types of animals and plants page (typesOfA&P.html)-->
+                    <a href="typesOfA&P.html#plants">Read More</a>
+                </p>
+            </div>
+
+
+        </div>
+    </section>
+</body>
+
+
+<footer>
+    <div class="content">
+        <div class="left-box">
+
+            <div class="upper">
+                <div class="topic">Contact Us</div>
+                <div class="phone"><img src="images/tele.png" alt="">
+                    <p>011-123 4567</p>
+                </div>
+                <div class="email"><img src="images/gmail.png" alt="">
+                    <p>info@dehiwalazoo.lk</p>
+                </div>
+                <div class="address"><img src="images/gmap.png" alt="">
+                    <p>120 Galvihara Rd, Dehiwala-Mount Lavinia, Sri Lanka</p>
+                </div>
+            </div>
+
+        </div>
+        <div class="middle-box">
+            <div class="topic">Visit Us</div>
+            <div class="btnMiddle1"><a href="panda1.html">Meet The Panda 1</a>
+            </div>
+            <div class="btnMiddle2"><a href="panda2.html">Meet The Panda 2</a></div>
+            <div class="btnMiddle3"><a href="activities.html">Activities</a></div>
+            <div class="btnMiddle4"><a href="map.html">MAP</a></div>
+
+        </div>
+        <div class="right-box">
+            <div class="topic">Subscribe to Our Newsletter</div>
+            <input class="textboxR" type="text" placeholder="Enter your email">
+            <input type="submit" class="subscribe-btn" value="SUBSCRIBE">
+            <div class="media-icons">
+                <a href="#"><img src="images/fb.png" alt=""></a>
+                <a href="#"><img src="images/ig.png" alt=""></a>
+                <a href="#"><img src="images/yt.png" alt=""></a>
+            </div>
+        </div>
+    </div>
+    <div class="bottom">
+        <p>Copyright &#169; 2021 Senura Perera CB008868 All Rights Reserved</p>
+        <p>CB No- CB008868</p>
+        <p>Contact - 0773975994</p>
+    </div>
+
+</footer>
+
+</html>
