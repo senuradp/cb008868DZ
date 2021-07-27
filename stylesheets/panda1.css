@@ -1,0 +1,705 @@
+*{
+    box-sizing: border-box;
+    font-family: calibri;
+}
+
+/* START OF NAVBAR STYLING */
+
+.navHeading {
+    height: 20px;
+}
+nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 10px 30px;
+    background-color: #45845a;
+    box-shadow: 2px 2px 20px rgba(90,118,253,0.13);
+    z-index: 5;
+    width:100%;
+    position: fixed;
+    left: 0px;
+    top: 0px;
+}
+nav ul{
+    display: flex;
+    margin:0px;
+    padding: 0px;
+    list-style: none;
+}
+nav ul li a{
+    height:40px;
+    line-height: 43px;
+    margin: 8px;
+    padding: 0px 22px;
+    display: flex;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    font-weight: 400;
+    color:#111;
+    text-decoration: none;
+    letter-spacing: 1px;
+}
+nav ul li a:hover{
+    background-color: chocolate;
+    color: #fff;
+    box-shadow: 5px 10px 30px rgb(153, 65, 3);
+    transition: all ease 0.2s;
+}
+
+/* This is used to hide the checkbox which we created in the html page for the hamburger icon*/
+    nav .menu-btn{
+        display: none;
+    }   
+
+    /* navBar media query (Navbar display in all the mobile layouts except the PC layout) */
+
+    @media(max-width:1150px){
+        /* This aligns the heading and the menu icon to the corners of the navbar */
+        nav{
+            justify-content: space-between;
+            height: 65px;
+        }
+         /* This hides the page links in the navbar which appears in the default view and allows the menu icon(hamburger icon to appear)  */
+        .menu{
+            display: none;
+            position: absolute;
+            top: 65px;
+            left: 0px;
+            background-color:  #45845a;
+            border-bottom: 4px solid chocolate;
+            width:100%;
+        }
+
+        .menu li{
+            width:100%;
+        }
+        /* Creation of the menu icon */
+        /*This is used create the menu icon by creating a box and reduce the size and make it the middle line of the navbar*/
+        nav .menu-icon .nav-icon{
+            background-color: #333333;
+            display: block;
+            height: 2px;
+            position: relative;
+            transition: 0.2s ease-out;
+            width:18px;
+        }
+
+         /*This is used to create the 2 lines ontop of the line we created (line 85-92) in the css page (above code snippet) */
+         nav .menu-icon .nav-icon:before,
+         nav .menu-icon .nav-icon:after{
+             background: #333333;
+             content: '';
+             display: block;
+             height: 100%;
+             position: absolute;
+             transition: all ease-out 0.2s;
+             width:100%;
+         }
+         
+        /* End of creation of menu icon */
+
+
+        nav .menu li a{
+            width:100%;
+            height: 40px;
+            justify-content: center;
+            align-items: center;
+            margin:0px;
+            padding: 25px;
+            border:1px solid rgba(38,38,38,0.03);
+        }
+        nav .menu-icon{
+            cursor: pointer;
+            float: right;
+            padding: 28px 20px;
+            position: relative;
+            user-select: none;
+        }
+        
+       /*This is used to add padding to the 2 lines we created in the css page (above code snippet) */
+        nav .menu-icon .nav-icon:before{
+            top: 5px;
+        }
+        nav .menu-icon .nav-icon:after{
+            top:-5px;
+        }
+
+         /* This is used to hide the middle line of the menu icon we created above  */
+        nav .menu-btn:checked ~ .menu-icon .nav-icon{
+            background: transparent;
+        }
+
+        
+        /* This is used to rotate the menu icon so that it forms a cross "X" symbol once created */
+        /* The " ~ "  symbol means to select all of " .navBar-menu-icon .navBar-icon:before " preceeded by .navBar-menu-btn:checked * */
+        nav .menu-btn:checked ~ .menu-icon .nav-icon:before{
+            transform: rotate(-45deg);
+            top: 0;
+        }
+        nav .menu-btn:checked ~ .menu-icon .nav-icon:after{
+            transform: rotate(45deg);
+            top: 0;
+        }
+        /* hides the checkbox we created */
+        nav .menu-btn{
+            display: none;
+        }
+        nav .menu-btn:checked ~ .menu{
+            display: block;
+        }
+}
+/* navBar end */
+
+/* ADDS  a image to the body of the page */
+body{
+   background: url(../images/panda/panda1bkg.jpg);
+   z-index: 3;
+   background-color: rgb(15, 92, 15);
+}
+
+
+
+/* IMAGES CAN REACH A MAX-WIDTH OF 100% */
+.Img{
+    max-width: 100%;
+}
+
+.iconImg{
+    width: 25%;
+}
+
+.services-heading{ 
+    margin-top: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+}
+.services-heading h2{
+    line-height: 55px;
+    font-size: 2.2rem;
+    color:white;
+    letter-spacing: 1px;
+    font-weight: 700;
+    margin: 0px;
+    padding-left: 505px;
+    margin-top: -15px;
+}
+/* media tags written to achieve responsivesness when screen width is 800px */
+@media (max-width:800px){
+    .services-heading h2{
+        padding-left: 250px;
+        margin-top: -55px;
+    }
+}
+/* media tags written to achieve responsivesness when screen width is 400px */
+@media (max-width:400px){
+    .services-heading h2{
+        padding-left: 0px;
+    }
+}
+/* displays the wrapper div as the grid */
+.wrapper{
+    display: grid;
+    grid-gap: 20px;
+}
+
+/* CREATION OF VARIABLES TO ACCESS SPECIFIED COLORS */
+:root{
+    --primary:#fff;
+    --dark:#333;
+    --light:#fff;
+    --shadow:0 1px 5px rgba(104,104,104,0.8);
+}
+
+/* top container */
+.top-container{
+    display: grid;
+    grid-gap:20px;
+    grid-template-areas: 
+    'main main top-box-a'
+    'main main top-box-b';
+}
+
+.main{
+    margin-top: 13vh;
+    grid-area: main;
+    min-height: 500px;
+    max-width: 100%;
+    background: url(../images/panda2.jpg);
+    background-size: cover;
+    background-position: center;
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    box-shadow: var(--shadow);
+}
+.main h1{
+    font-size: 4rem;
+    margin-bottom: 0;
+    color: var(--light);
+}
+
+.main p{
+    font-size: 1.3rem;
+    margin-top: 0;
+    color: var(--light);
+}
+
+.top-box{
+    background: #ffffff8f;
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    box-shadow: var(--shadow);
+    padding: 1rem;
+}
+
+.top-box h2{
+     font-size: 1.7rem; ;
+}
+.top-box .price {
+    font-size: 1.4rem;
+}
+/* grid area is used to give name to the box and access it easily to align it in the responsive mode */
+.top-box-a{
+    margin-top: 13vh;
+    grid-area:top-box-a;
+}
+.top-box-b{
+    margin-top: 13vh;
+    grid-area:top-box-b;
+}
+
+
+.top-box-b .a{
+    margin: 0 0;
+    padding: 0 0;
+    height: 20%;
+    width: 10%;
+}
+.top-box-b .b{
+    margin: 0 0;
+    padding: 0 0;
+    height: 30%;
+    width: 20%;
+}
+
+/* repeat autofit is used to achieve wrapping of grids and 1 fr is used to translate 1 fraction of the grid to 200px asg given below  */
+.boxes{
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(200px , 1fr));
+    max-width: 100%;
+    color: var(--light);
+}
+
+.box{
+    background: #779a7a94 ;
+    text-align: center;
+    padding: 1.5rem 2rem;
+    box-shadow: var(--shadow);
+    max-width: 100%;
+}
+
+.box ul li{
+    font-size: 1rem;
+    color:var(--light);
+    line-height: 20px;
+    align-content: center;
+    text-align: left;
+    letter-spacing: 1px;
+    padding-bottom: 10px;
+    padding-left: 10%;
+}
+.box h3{
+    font-size: 1.6rem;
+}
+
+.box font{
+    font-size: 1.3rem;
+}
+
+.info{
+    box-shadow: var(--shadow);
+    display: grid;
+    grid-gap:30px;
+    padding: 3rem;
+    max-width: 100%;
+    letter-spacing: 1px;
+    font-size: 1.1rem;
+    color: var(--light);
+    
+}
+
+
+.gallery1{
+    display: grid;
+    grid-gap:10px;
+    grid-template-columns: repeat(auto-fit, minmax(200px , 2fr));
+}
+
+.gallery1 img{
+    width: 100%;
+    height: 292px;
+    box-shadow: var(--shadow);
+}
+
+.gallery2{
+    display: grid;
+    grid-gap:10px;
+    grid-template-columns: repeat(auto-fit, minmax(200px , 1fr));
+}
+
+.gallery2 img{
+    width: 100%;
+    height: 350px;
+    box-shadow: var(--shadow);
+}
+
+.gallery1 img,
+.gallery2 img{
+color: var(--light);
+}
+
+/* media tags written to achieve responsivenss in mobile layout and view */
+@media(max-width:800px){
+    .top-container{
+        grid-template-areas:
+        'main main' 
+        'top-box-a top-box-b';
+    }
+    
+    .showcase h1{
+        font-size: 2.1rem;
+    }
+
+    .info{
+        grid-template-columns: 1fr;
+    }
+
+
+}
+
+@media(max-width:500px) {
+    .top-container{
+        grid-template-areas:
+        'main' 
+        'top-box-a'
+        'top-box-b';
+    }
+}
+
+
+/* START OF STYLING FOR THE CSS CODE OF THE FOOTER*/
+
+
+footer{
+    width: 100%;
+    position:relative;
+    bottom: 0;
+    left: 0%;
+    right: 0%;
+    background: rgb(30 35 30 / 87%);
+
+  }
+
+  /* aligns the content of the footer   */
+  footer .content{
+    margin: auto;
+    padding-top: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding-bottom: 20px;
+    padding-right: 30px;
+    padding-left: 20px;  } 
+  
+
+  footer .content p, a{
+    color: #fff;
+  }
+
+  footer .content .left-box{
+    width: 33%;
+  }
+
+  footer .content .topic{
+    font-size: 34px;
+    font-weight: 600;
+    color: #fff;
+    text-align: center;
+    margin-bottom: 16px;
+  }
+
+  footer .content p{
+    width: 90%;
+    margin-top: 0;
+    font-size: 20px;
+    padding-left: 70px;
+  }
+
+  footer .content .upper .topic{
+    margin: 0 0 8px 0;
+  }
+
+  footer .content .upper img{
+    padding-right: 16px;
+    width: 15%;
+    color: white;
+  }
+
+  /* hovering effect to to the images next to the contact information in the footer to zoom on hover*/
+  .upper img:hover{
+    transform:scale(1.2) ;
+    border: 0;
+    color: white;
+  }
+
+  footer .content .middle-box{
+    padding-right: 70px;
+  }
+
+
+  .middle-box 
+  .btnMiddle1 a, 
+  .btnMiddle2 a,
+  .btnMiddle3 a,
+  .btnMiddle4 a{
+      color: white;
+      border: 3px solid chocolate;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: 0.5s all;
+      margin-right: 2px;
+      margin-left: 2px;
+      line-height: 56px;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      /* text-shadow: -1px 2px black; */
+    }
+
+  .middle-box 
+  .btnMiddle1 a,  
+  .btnMiddle2 a{
+        padding-left: 59px;
+        padding-right: 60px;
+    }
+
+  
+  .middle-box .btnMiddle3 a{
+        padding-left: 95px;
+        padding-right: 94px;
+    }
+
+  .middle-box .btnMiddle4 a{
+        padding-left: 121px;
+        padding-right: 120px;
+    }
+
+
+  
+  .middle-box 
+  .btnMiddle1 a:hover,
+  .btnMiddle2 a:hover,
+  .btnMiddle3 a:hover,
+  .btnMiddle4 a:hover{
+        background-color: #eb7620;
+        border: 0;
+        color: white;
+  }
+
+
+
+  footer .content .right-box .textboxR{ 
+    height:  45px;
+    width: 100%;
+    outline: none;
+    color: #d9d9d9;
+    background: #000;
+    border-radius: 5px;
+    padding-left: 10px;
+    font-size: 17px;
+    border: 2px solid #222222;
+  }
+
+   /* styling for the subscribe button */
+  footer .content .right-box .subscribe-btn{
+    margin-top: 10px;
+    padding: 12px 35px;
+    font-size: 16px;
+    color: #293843;
+    background: white;
+    border: none;
+    font-weight: 700;
+    outline:none;
+    border-radius: 15px;
+    width: 100%;
+  }
+ /* changes the opacity of the subscribe button on hover */
+  .subscribe-btn:hover{
+     opacity: .7;
+  }
+
+  footer .content .media-icons a{
+    font-size: 12px;
+    height: 45px;
+    width: 45px;
+   display: inline-block;
+   text-align: center;
+   line-height: 45px;
+   margin: 30px 5px 0 0; 
+  }
+  
+  /* hovering effect to to the social media images to zoom on hover*/
+  .media-icons a:hover{
+    transform:scale(1.2) ;
+    border: 0;
+    color: white;
+  }
+  
+  footer .bottom{
+    width: 100%;
+    text-align: center;
+    color: var(--light);
+    padding: 0 40px 5px 0 ;
+    margin-top: -20px;
+  }
+
+footer .bottom p{
+    color: var(--light);
+}
+ 
+/* transition for links with the cubic bezier */
+ footer a{
+   transition: all 0.3s ease;
+ }
+  
+  /* MEDIA TAGS FOR THE FOOTER IN ALL THE PAGES EXCEPT THE 2 DIFFERENTE CSS STYLING PAGES */
+/* media query to achieve reponsiveness uintil the with of the screen is 1110px */
+
+@media (max-width:1110px) {
+    footer .content{
+        padding: 20px;
+    }
+ footer .content .middle-box{
+   padding-top: 38px;
+   margin-left: -5px;
+   padding-right: inherit;
+ }
+}
+
+/* media query to achieve reponsiveness uintil the with of the screen is 950px */
+@media  (max-width:950px) { 
+    footer .content{
+        padding: 20px;
+    } 
+ 
+ footer .content p {
+    width: 100%;
+    margin-top: 0;
+    font-size: 20px;
+    padding-left: 70px;
+}
+
+    footer .content .left-box{
+        margin-top: 40px;
+      }
+     
+      footer .content .upper img {
+        padding-right: 16px;
+        width: 26%;
+    }
+
+ .content .right-box{
+   margin-top: 50px;
+   padding-left: 150px;
+ }
+
+ .content .right-box .media-icons{
+     padding-left: 110px;
+ }
+}
+
+/* media query to achieve reponsiveness uintil the with of the screen is 570px */
+@media  (max-width:570px) {
+ footer{
+   position: relative;
+ }
+
+ footer .content{
+    padding: 20px;
+}
+
+ footer  .content .left-box{
+   width: 100%;
+   margin-top: 30px;
+ }
+ footer  .content .middle-box{
+  padding-left: 13px;
+ }
+
+ .content .right-box{
+    margin-top: 50px;
+    padding-left: 0px;
+  }
+ 
+  .content .right-box .media-icons{
+      padding-left: 75px;
+  }
+
+  footer .bottom{
+      padding-left: 40px;
+  }
+}  
+
+
+@media (max-width:500px){
+    .middle-box 
+    .btnMiddle1 a ,
+    .btnMiddle2 a {
+        padding-left: 22px;
+        padding-right: 22px;
+        margin-left: 20px;
+    }
+    .middle-box .btnMiddle3 a {
+        padding-left: 59px;
+        padding-right: 59px;
+        margin-left: 20px;
+    }
+    .middle-box .btnMiddle4 a {
+        padding-left: 85px;
+        padding-right: 85px;
+        margin-left: 20px;
+    }
+
+}
+
+
+@media (max-width:300px) {
+    .middle-box 
+    .btnMiddle1  a,
+    .btnMiddle2  a{
+        padding-left: 20px;
+        padding-right: 20px;
+        margin-left: 7px;
+    }
+    .middle-box .btnMiddle3  a{
+        padding-left: 60px;
+        padding-right: 50px;
+        margin-left: 7px;
+    }
+    .middle-box .btnMiddle4  a{
+        padding-left: 82px;
+        padding-right: 80px;
+        margin-left: 7px;
+    }
+}
+
+/* Footer end */

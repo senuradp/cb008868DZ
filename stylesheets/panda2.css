@@ -1,0 +1,914 @@
+*{
+    box-sizing: border-box;
+}
+
+/* START OF CSS STYLING OF THE NAVBAR*/
+.navHeading {
+    height: 20px;
+}
+nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 10px 30px;
+    background-image: linear-gradient(to bottom right, rgb(86, 148, 86), rgb(208, 255, 0));
+    box-shadow: 2px 2px 20px rgba(90,118,253,0.13);
+    z-index: 5;
+    width:100%;
+    position: fixed;
+    left: 0px;
+    top: 0px;
+}
+/* displays the ul as a flex which means the list is displayed horizontally */
+nav ul{
+    display: flex;
+    margin:0px;
+    padding: 0px;
+    list-style: none;
+}
+nav ul li a{
+    height:40px;
+    line-height: 43px;
+    margin: 8px;
+    padding: 0px 22px;
+    display: flex;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    font-weight: 400;
+    text-decoration: none;
+    letter-spacing: 1px;
+    color:black;
+}
+nav ul li a:hover{
+    background-color: chocolate;
+    color:#fff;
+    box-shadow: 5px 10px 30px rgb(153, 65, 3);
+    border-radius: 10px;
+    transition:ease-in-out 0.2s;
+}
+
+/* This is used to hide the checkbox which we created in the html page for the hamburger icon*/
+nav .menu-btn{
+    display: none;
+}
+    
+    /* navBar media query (Navbar display in all the mobile layouts except the PC layout) */
+
+    @media(max-width:1150px){
+        nav{
+            justify-content: space-between;
+            height: 65px;
+        }
+        /* This hides the page links in the navbar which appears in the default view and allows the menu icon(hamburger icon to appear)  */
+        .menu{
+            display: none;
+            position: absolute;
+            top: 65px;
+            left: 0px;
+            background-color: #fff;
+            border-bottom: 4px solid chocolate;
+            width:100%;
+        }
+        .menu li{
+            width:100%;
+        }
+        
+        /* Creation of the menu icon */
+        /*This is used create the menu icon by creating a box and reduce the size and make it the middle line of the navbar*/
+        nav .menu-icon .nav-icon{
+            background-color: #333333;
+            display: block;
+            height: 2px;
+            position: relative;
+            transition: 0.2s ease-out;
+            width:18px;
+        }
+        /* used to tranform the cursor and align the menu icon */
+        nav .menu-icon{
+            cursor: pointer;
+            float: right;
+            padding: 28px 20px;
+            position: relative;
+            user-select: none;
+        }
+        /*This is used to create the 2 lines ontop of the line we created (line 85-92) in the css page (above code snippet) */
+        nav .menu-icon .nav-icon:before,
+        nav .menu-icon .nav-icon:after{
+            background: #333333;
+            content: '';
+            display: block;
+            height: 100%;
+            position: absolute;
+            transition: all ease-out 0.2s;
+            width:100%;
+        }
+
+        /*This is used to add padding to the 2 lines we created (line 95-104) in the css page (above code snippet) */
+        nav .menu-icon .nav-icon:before{
+            top: 5px;
+        }
+        nav .menu-icon .nav-icon:after{
+            top:-5px;
+        }
+        /* End of creation of menu icon */
+
+        /* This aligns the links in the navbar which is displayed after the menu icon is clicked */
+        nav .menu li a{
+            width:100%;
+            height: 40px;
+            justify-content: center;
+            align-items: center;
+            margin:0px;
+            padding: 25px;
+            border:1px solid rgba(38,38,38,0.03);
+        }
+       /* This is used to hide the middle line of the menu icon we created above  */
+        nav .menu-btn:checked ~ .menu-icon .nav-icon{
+            background: transparent;
+        }
+
+        /* This is used to rotate the menu icon so that it forms a cross "X" symbol once created */
+        /* The " ~ "  symbol means to select all of " .navBar-menu-icon .navBar-icon:before " preceeded by .navBar-menu-btn:checked * */
+        nav .menu-btn:checked ~ .menu-icon .nav-icon:before{
+            transform: rotate(-45deg);
+            top: 0;
+        }
+        nav .menu-btn:checked ~ .menu-icon .nav-icon:after{
+            transform: rotate(45deg);
+            top: 0;
+        }
+        /* hides the checkbox we created */
+        nav .menu-btn{
+            display: none;
+        }
+       
+        nav .menu-btn:checked ~ .menu{
+            display: block;
+        }
+}
+/* END OF CSS STYLING OF THE NAVBAR*/
+
+body{
+    margin:0px;
+    padding-left: 0px;
+    padding-bottom: 0px;
+    padding-right: 0px;
+    padding-top: 10px;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    background: url(../images/panda/panda2bkg.jpg);
+    z-index: 3;
+    background-color: rgb(15, 92, 15);
+}
+
+/* use of a global stye so that aall the <a> tags will inherit it */
+a{
+    text-decoration: none;
+}
+
+.main{
+    width:100%;
+    height:100vh;
+    background-image: url(../images/panda2.jpg); 
+    background-size: cover;
+    background-position: top left;
+    position: relative;
+}
+.logo img{
+    height: 20px;
+}
+/* Heading and its content on the main image */
+.home-content{
+    display: flex;
+    justify-content: space-around;
+    align-items:center;
+    position: absolute;
+    left: 50%;
+    top:50%;
+    transform: translate(-120%,-50%);
+}
+.home-img{
+    width:500px;
+    height:400px;
+    margin:20px;
+}
+.home-img img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+}
+.home-text{
+    width:500px;
+    margin:20px;
+    
+}
+.home-text h1{
+    text-align: center;
+    font-size: 3.5rem;
+    line-height: 55px;
+    color:white;
+    letter-spacing: 1px;
+    font-weight: 700;
+    margin: 0px;
+    /* text-shadow: 4px -2px black; */
+}
+
+.home-text p{
+    text-align: center;
+    font-size: 2rem;
+    color:chocolate;
+    
+}
+.home-text font{
+    color: black;
+}
+
+/* (line 75-77 in the html file) */
+
+.services-heading{
+    margin-top: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+}
+.services-heading h2 font{
+    line-height: 55px;
+    font-size: 2.5rem;
+    color:white;
+    letter-spacing: 1px;
+    font-weight: 700;
+    margin: 0px;
+}
+.services-heading h2{
+    line-height: 55px;
+    font-size: 2.5rem;
+    color:green;
+    letter-spacing: 1px;
+    font-weight: 700;
+    margin: 0px;
+    /* text-shadow: 5px 1px black; */
+}
+
+/* Dislpays the box container as a flex in row and is centered */
+.box-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 20px 30px;
+}
+.box{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width:31%;
+    height: 400px;
+    /* text-align: center; */
+    box-shadow: 2px 2px 20px rgba(90,118,253,0.15);
+    border-radius: 10px;
+    background-color: #82d81cb3;
+    margin: 20px;
+    flex-grow: 1;
+}
+
+.box img{
+    margin:5px;
+    height:100px;
+    padding:0  0;
+}
+
+
+.box font{
+    font-size: 1.5rem;
+    color: #22252e;
+    letter-spacing: 1px;
+    font-weight: 700;
+}
+.box p{
+    font-size: 1rem;
+    /* color: blacks; */
+    display: block;
+    max-width: 500px;
+}
+
+.pandaAct{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 20px 30px;
+}
+.pA{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width:25%;
+    height: 400px;
+    /* text-align: center; */
+    box-shadow: 2px 2px 20px rgba(90,118,253,0.15);
+    border-radius: 10px;
+    background-color: bisque;
+    margin: 20px;
+    flex-grow: 1;
+}
+.pA img{
+    margin:5px;
+    height:100px;
+    padding:0  0;
+}
+
+
+.pA font{
+    font-size: 1.5rem;
+    color: #22252e;
+    letter-spacing: 1px;
+    font-weight: 700;
+    padding-top: 3px;
+}
+.pA p{
+    font-size: 1rem;
+    color: #777474;
+    display: block;
+    max-width: 500px;
+}
+.pA  ul li{
+    text-align: left;
+    letter-spacing: 1px;
+    letter-spacing: 1px;
+    padding-bottom: 10px;
+}
+/* 1st flex row of images */
+.gallery1,
+.gallery2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 10px 1px;
+}
+.g1,
+.g2,
+.g3{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width:25%;
+    flex-grow: 1;
+    border-radius: 10px;
+}
+.g1{
+height: 400px;
+margin: 10px;
+flex-grow: 1;
+}
+.g1 img{
+    margin:5px;
+    height:75%;
+    width: 100%;
+    padding:0  0;
+}
+
+.g1,
+.g2{
+    margin: 10px;
+}
+
+
+/* 2nd flex row with a text box in the middle and 2 images on either sides */
+
+/* .gallery2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 10px 1px;
+} */
+.g2{
+    box-shadow: 2px 2px 20px rgba(90,118,253,0.15);
+    background-color: honeydew;
+    padding: 10px 10px;
+}
+/* determines the size , margin angd the padding of the image */
+.g2 img{
+    margin:5px;
+    height:100%;
+    width: 106%;
+    padding:0  0;
+}
+.g2 font{
+    font-size: 1.5rem;
+    color: #22252e;
+    letter-spacing: 1px;
+    font-weight: 700;
+    text-align: center;
+}
+.g2 p{
+    font-size: 1rem;
+    color: olivedrab;
+    display: block;
+    max-width: 100%;
+    width: 100%;
+    height: 100%;
+    /* padding: -1px 10px; */
+    letter-spacing: 1px;
+}
+
+/* 3 rd row of images */
+/* line 195-208 */
+.gallery3{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 6px 1px;
+}
+.g3{
+    height: 400px;
+    margin: 20px;
+}
+.g3 img{
+    margin:5px;
+    height:75%;
+    width: 100%;
+    padding:0  0;
+}
+
+.gallery1,
+.gallery3{
+    color: white;
+}
+/* media queries written to achieve resposiveness according to the specified widths of the screen */
+@media(max-width:1100px){
+    .main{
+        height: 10px;
+        background-size: 500px;;
+    }
+    .home-text{
+        width:100%;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        height: 50vh;
+        margin: 0px;
+    }
+    .home-content{
+        width:100%;
+        margin-top:-26px;
+        position: static;
+        transform: translate(0px,70px);
+        background-image: url("../images/panda2.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: top right;
+        box-shadow: 2px 2px 30px rgba(90,118,253,0.15);
+    }
+    .home-text h1{
+        color:#fff;
+        padding: 0px 20px;
+        font-size: 2.5rem;
+    }
+    .home-text p{
+        color:rgba(255,255,255,0.85);
+        margin: 10px 0px 20px 0px;
+        width:50%;
+    }
+    .home-text font{
+        color: black;
+    }
+    
+    /* "!important" gives priority to the code by overridng any other given codes */
+   .box{
+    width:30%;
+    margin: 20px 0px !important;
+    padding: 0px 20px;
+    flex-grow: 1;
+    }
+    .box img{
+    height: 100px;
+    width:100%;
+    object-fit: contain;
+    }
+
+
+   .pA{
+    width:30%;
+    margin: 20px 0px !important;
+    padding: 0px 20px;
+    flex-grow: 1;
+    }
+    .pA img{
+    height: 100px;
+    width:100%;
+    object-fit: contain;
+    }   
+}
+
+
+/* achieves responsiveness for a screen of width 850px or below */
+@media(max-width:850px){
+
+    /* the color of the heading is changed to match with the bacground orelse its not visible */
+    .services-heading h2{
+        padding-top: 30px;
+        color: white;
+    }
+    .services-heading h2 font{
+        color: black;
+    }
+    .box{
+        /* width:40%; */
+        margin: 20px 13px !important;
+        /* padding: 0px 20px; */
+        flex-grow: 1;
+    }
+    .box,
+    .pA{
+        width:40%;
+        padding: 0px 20px;
+        flex-grow: 1;
+    }
+    .box img,
+    .pA img{
+        height: 100px;
+        width:100%;
+        object-fit: contain;
+    }
+    .pA{
+        /* width:40%; */
+        margin: 20px 18px !important;
+        /* padding: 0px 20px; */
+        /* flex-grow: 1; */
+        height: 460px;
+    }
+    /* .pA img{
+        height: 100px;
+        width:100%;
+        object-fit: contain;
+    } */
+
+    .g1,
+    .g3{
+        height: 50%;
+    }
+    .g1 img,
+    .g3 img{
+        margin: 5px;
+        height: 50%;
+        width: 100%;
+        padding: 0 0;
+    }
+    
+    .g2{
+        width: 100%;
+    }
+    
+}
+
+/* achieves responsiveness for a screen of width 600px or below*/
+
+@media(max-width:600px){
+    .home-text p{
+        width:70%;
+        text-align: center;
+    }
+    
+   
+    .home-content h1{
+        font-size: 1.9rem;
+        padding: 10px 10px;
+        line-height: 30px;
+    }
+   
+    .services-heading{
+        margin:20px;
+        padding-top: 10vh;
+ 
+    }
+    .services-heading h2{
+        font-size: 40px;
+        line-height: 40px;
+        color: green;
+    }
+   
+    .box,
+    .pA{
+        width:100%;
+        margin: 20px 0px !important;
+        padding: 0px 20px;
+        flex-grow: 1;
+    }
+    .box img,
+    .pA img{
+        height: 100px;
+        width:100%;
+        object-fit: contain;
+    }
+    /* .pA{
+        width:100%;
+        margin: 20px 0px !important;
+        padding: 0px 20px;
+        flex-grow: 1;
+    } */
+    /* .pA img{
+        height: 100px;
+        width:100%;
+        object-fit: contain;
+    } */
+    
+}
+
+/* footer start */
+
+
+footer{
+    width: 100%;
+    position:relative;
+    bottom: 0;
+    left: 0;
+    background: rgb(38 38 38 / 48%);
+    margin-top: -5px;
+
+  }
+
+  
+  footer .content{
+    margin: auto;
+    padding-top: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding-bottom: 20px;
+    padding-right: 0px;
+    padding-left: 20px;  
+} 
+  
+
+  footer .content p, a{
+    color: #fff;
+  }
+
+  footer .content .left-box{
+    width: 33%;
+  }
+
+  footer .content .topic{
+    font-size: 34px;
+    font-weight: 600;
+    color: #fff;
+    text-align: center;
+    margin-bottom: 16px;
+    /* text-shadow: -1px 4px black; */
+  }
+
+  footer .content p{
+    width: 90%;
+    margin-top: 0;
+    font-size: 20px;
+    padding-left: 70px;
+    /* text-shadow: -1px 2px black; */
+  }
+
+  footer .content .upper .topic{
+    margin: 0 0 8px 0;
+  }
+
+  footer .content .upper img{
+    padding-right: 16px;
+    width: 15%;
+    color: white;
+  }
+
+  footer .content .middle-box{
+    padding-right: 15px;
+  }
+
+  .middle-box 
+  .btnMiddle1 a, 
+  .btnMiddle2 a,
+  .btnMiddle3 a,
+  .btnMiddle4 a{
+    color: white;
+    border: 3px solid chocolate;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: 0.5s all;
+    margin-right: 2px;
+    margin-left: 2px;
+    line-height: 56px;
+    /* text-shadow: -1px 2px black; */
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  .middle-box
+  .btnMiddle1 a, 
+  .btnMiddle2 a{
+    padding-left: 60px;
+    padding-right: 60px;
+  }
+
+  .middle-box 
+  .btnMiddle3 a{
+    padding-left: 102px;
+    padding-right: 101px;
+  }
+
+   .middle-box 
+   .btnMiddle4 a{
+    padding-left: 135px;
+    padding-right: 135px;
+  }
+
+  .middle-box 
+  .btnMiddle1 a:hover,
+  .btnMiddle2 a:hover,
+  .btnMiddle3 a:hover,
+  .btnMiddle4 a:hover{
+    background-color: #eb7620;
+    border: 0;
+    color: white;
+  }
+
+  footer .content .right-box .textboxR{ 
+    height:  45px;
+    width: 100%;
+    outline: none;
+    color: #d9d9d9;
+    background: #000;
+    border-radius: 5px;
+    padding-left: 10px;
+    font-size: 17px;
+    border: 2px solid #222222;
+  }
+
+  footer .content .right-box .subscribe-btn{
+    margin-top: 10px;
+    padding: 12px 35px;
+    font-size: 16px;
+    color: #293843;
+    background: white;
+    border: none;
+    font-weight: 700;
+    outline:none;
+    border-radius: 15px;
+    width: 100%;
+  }
+
+  .subscribe-btn:hover{
+     opacity: .7;
+  }
+
+  footer .content .media-icons a{
+    font-size: 12px;
+    height: 45px;
+    width: 45px;
+   display: inline-block;
+   text-align: center;
+   line-height: 45px;
+   margin: 30px 5px 0 0; 
+  }
+
+  
+  footer .bottom{
+    width: 100%;
+    text-align: center;
+    color: #d9d9d9;
+    padding: 0 40px 5px 0 ;
+    margin-top: -20px;
+    /* text-shadow: -1px 2px black; */
+  }
+
+
+ footer a{
+   transition: all 0.3s ease;
+ }
+ 
+ .right-box {
+    padding-right: 26px;
+}
+  
+  
+
+@media (max-width:1100px) {
+    footer .content{
+        padding: 20px;
+    }
+ footer .content .middle-box{
+   padding-top: 38px;
+   margin-left: -5px;
+   padding-right: inherit;
+ }
+}
+
+@media  (max-width:950px) { 
+    footer .content{
+        padding: 20px;
+    } 
+ 
+ footer .content p {
+    width: 100%;
+    margin-top: 0;
+    font-size: 20px;
+    padding-left: 70px;
+}
+
+    footer .content .left-box{
+        margin-top: 40px;
+      }
+     
+      footer .content .upper img {
+        padding-right: 16px;
+        width: 26%;
+    }
+
+ .content .right-box{
+   margin-top: 50px;
+   padding-left: 150px;
+ }
+
+ .content .right-box .media-icons{
+     padding-left: 110px;
+ }
+}
+
+@media  (max-width:560px) {
+ footer{
+   position: relative;
+ }
+
+ footer .content{
+    padding: 20px;
+}
+
+ footer  .content .left-box{
+   width: 100%;
+   margin-top: 30px;
+ }
+ footer  .content .middle-box{
+  padding-left: 13px;
+ }
+
+ .content .right-box{
+    margin-top: 50px;
+    padding-left: 0px;
+  }
+ 
+  .content .right-box .media-icons{
+      padding-left: 75px;
+  }
+
+  footer .bottom{
+      padding-left: 40px;
+  }
+}  
+
+@media (max-width:500px){
+    .middle-box 
+    .btnMiddle1 a ,
+    .btnMiddle2 a {
+        padding-left: 22px;
+        padding-right: 22px;
+        margin-left: 20px;
+    }
+    .middle-box .btnMiddle3 a {
+        padding-left: 59px;
+        padding-right: 59px;
+        margin-left: 20px;
+    }
+    .middle-box .btnMiddle4 a {
+        padding-left: 85px;
+        padding-right: 85px;
+        margin-left: 20px;
+    }
+
+}
+
+
+@media (max-width:300px) {
+    .middle-box 
+    .btnMiddle1  a,
+    .btnMiddle2  a{
+        padding-left: 20px;
+        padding-right: 20px;
+        margin-left: 7px;
+    }
+    .middle-box .btnMiddle3  a{
+        padding-left: 60px;
+        padding-right: 50px;
+        margin-left: 7px;
+    }
+    .middle-box .btnMiddle4  a{
+        padding-left: 82px;
+        padding-right: 80px;
+        margin-left: 7px;
+    }
+}
+
+/* footer end */
